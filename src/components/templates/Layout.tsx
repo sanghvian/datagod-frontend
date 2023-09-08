@@ -11,7 +11,7 @@ const { Header, Content, Footer, Sider } = Layout;
 const BaseLayoutComp: React.FC<{ children: ReactNode }> = ({ children }) => {
 
   const dispatch: AppDispatch = useDispatch();
-  const contentKey = useSelector((state: RootState) => state.contentKey)
+  const contentKey = useSelector((state: RootState) => state.state.contentKey)
   return (
     <Layout style={{ height: '100vh' }}>
       <Sider

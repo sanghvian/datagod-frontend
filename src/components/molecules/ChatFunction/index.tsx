@@ -21,7 +21,7 @@ export interface ChatMessage {
 
 const ChatApp: React.FC = () => {
   const appState = useSelector((state: RootState) => state);
-  const contentKey = useSelector((state: RootState) => state.contentKey)
+  const contentKey = useSelector((state: RootState) => state.state.contentKey)
   const [messages, setMessages] = useState<ChatMessage[]>([]);
   const [loading, setLoading] = useState(false);
   const [input, setInput] = useState("");
@@ -88,7 +88,7 @@ const ChatApp: React.FC = () => {
           />
           <Button onClick={handleSubmit} loading={loading} type="primary" icon={<SendOutlined />}></Button>
           <PDFDownloadLink
-            document={<FullReport messages={appState.chatMessages} />}
+            document={<FullReport messages={appState.state.chatMessages} />}
             fileName={`app_report.pdf`}
           >
             {({ blob, url, loading, error }) =>
