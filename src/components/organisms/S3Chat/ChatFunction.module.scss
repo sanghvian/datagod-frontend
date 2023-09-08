@@ -1,0 +1,18 @@
+.messageContainer {
+  display: flex;
+  width: 100%;
+  flex-direction: column;
+}
+
+.sourceDocsContainer {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: flex-start;
+  width: 90%;
+  padding: 1rem;
+}
+
+.listContainer {
+  height: 50vh;
+  overflow-y: scroll;
+}
