@@ -38,12 +38,12 @@ const BaseLayoutComp: React.FC<{ children: ReactNode }> = ({ children }) => {
               label: 'Kendra RAG',
               onClick: () => dispatch(setContentKey('1'))
             },
-            {
-              key: '2',
-              icon: <VideoCameraOutlined />,
-              label: 'Indexing with Pinecone',
-              onClick: () => dispatch(setContentKey('2'))
-            },
+            // {
+            //   key: '2',
+            //   icon: <VideoCameraOutlined />,
+            //   label: 'Indexing with Pinecone',
+            //   onClick: () => dispatch(setContentKey('2'))
+            // },
             // {
             //   key: '3',
             //   icon: <UploadOutlined />,
