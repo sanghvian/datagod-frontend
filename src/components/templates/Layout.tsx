@@ -26,7 +26,7 @@ const BaseLayoutComp: React.FC<{ children: ReactNode }> = ({ children }) => {
       >
 
         <div className="demo-logo-vertical" />
-        <Typography.Title level={2} style={{ marginTop: '0.5rem', marginLeft: '0.5rem', width: "100%", color: 'white', textAlign: 'center' }}>chat.verlab</Typography.Title>
+        <Typography.Title level={2} style={{ marginTop: '0.5rem', marginLeft: '0.5rem', width: "100%", color: 'white', textAlign: 'center' }}>Datagod</Typography.Title>
         <Menu
           theme="dark"
           mode="inline"

@@ -2,11 +2,11 @@ import React from 'react'
 import Head from 'next/head';
 
 const Meta = () => {
-  const title = "Guvnor";
+  const title = "Datagod";
   return (
     <Head>
       {/* <!-- Primary Meta Tags --> */}
-      <title>Guvnor</title>
+      <title>Datagod</title>
       <meta name="title" content="cloudpilot" />
       <meta name="description" content="Education on a map" />
       <meta httpEquiv="Content-Security-Policy" content="upgrade-insecure-requests" />
@@ -14,14 +14,14 @@ const Meta = () => {
       {/* <!-- Open Graph / Facebook --/> */}
       <meta property="og:type" content="website" />
       <meta property="og:url" content="https://map.coursepanel.in/" />
-      <meta property="og:title" content="Guvnor" />
+      <meta property="og:title" content="Datagod" />
       <meta property="og:description" content="Education on a map" />
       <meta property="og:image" content="https://s3.ap-south-1.amazonaws.com/plan.coursepanel.in/meta/cloudpilot-meta.png" />
 
       {/* <!-- Twitter --/> */}
       <meta property="twitter:card" content="summary_large_image" />
       <meta property="twitter:url" content="https://map.coursepanel.in/" />
-      <meta property="twitter:title" content="Guvnor" />
+      <meta property="twitter:title" content="Datagod" />
       <meta property="twitter:description" content="Education on a map" />
       <meta property="twitter:image" content="https://s3.ap-south-1.amazonaws.com/plan.coursepanel.in/meta/cloudpilot-meta.png" />
       <title>{title}</title>

@@ -1,6 +1,6 @@
-# Verlabchat-frontend
+# Datagod-frontend
 
-> Verlabchat for the best of enterprise data through a chatbot
+> Datagod for the best of enterprise data through a chatbot
 
 <hr/>
 

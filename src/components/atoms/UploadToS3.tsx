@@ -25,13 +25,14 @@ const UploadToS3Button: FC = () => {
   const handleUpload = async () => {
     setIsLoading(true);
     try {
+      console.log({ ReactS3Client })
       const ufile = await ReactS3Client.uploadFile(file)
       console.log(ufile)
       message.success('File uploaded successfully!');
     } catch (e) {
-      // alert(e);
+      alert(e);
       console.log(e)
-      // message.error('File upload failed.');
+      message.error('File upload failed.');
     }
     setIsLoading(false);
   };
