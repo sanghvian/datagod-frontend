@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { Button, Input, List, Typography, Spin } from "antd";
+import { Button, Input, List, Typography, Spin, Row, Col } from "antd";
 import axios from "axios";
 import { useSelector } from "react-redux";
 import { AppDispatch, RootState } from "src/redux/store";
@@ -22,6 +22,7 @@ export interface ChatMessage {
 const ChatApp: React.FC = () => {
   const appState = useSelector((state: RootState) => state);
   const contentKey = useSelector((state: RootState) => state.state.contentKey)
+  const accessToken = useSelector((state: RootState) => state.user.value.accessToken)
   const [messages, setMessages] = useState<ChatMessage[]>([]);
   const [loading, setLoading] = useState(false);
   const [input, setInput] = useState("");
@@ -35,7 +36,8 @@ const ChatApp: React.FC = () => {
       const response = await axios.post(
         `${process.env.NEXT_PUBLIC_API_URL_2}/${urlRoute}`, // replace with your API endpoint
         {
-          query: input
+          query: input,
+          token: accessToken
         }
       );
       setMessages([
@@ -67,6 +69,26 @@ const ChatApp: React.FC = () => {
                   <strong>{item.sender === "user" ? "User =>" : "Guvnor AI =>"}</strong>  {item.content}
                 </Text> */}
                 <MessageBubble message={item.content} sender={item.sender} />
+                {item.sender === "server" &&
+                  <>
+                    <Row gutter={2}>
+                      <Col span={6}>
+                        <Button onClick={handleSubmit} loading={loading} type="primary">Regenerate ♻️</Button>
+                      </Col>
+                      <Col span={6}>
+                        <Button onClick={handleSubmit} loading={loading} type="primary">Get Infographic 📊</Button>
+                      </Col>
+                      <Col span={6}>
+
+                        <Button onClick={handleSubmit} loading={loading} type="primary">Get Concept Map 🧠</Button>
+                      </Col>
+                    </Row>
+
+                    {/*  */}
+
+                  </>
+
+                }
                 <div className={styles.sourceDocsContainer}>
                   {item?.sourceDocs?.length > 0 && <DocList documents={item?.sourceDocs} />}
                 </div>

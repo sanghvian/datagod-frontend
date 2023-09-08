@@ -90,7 +90,7 @@ const S3Chat: React.FC = () => {
           />
           <Button onClick={handleSubmit} loading={loading} type="primary" icon={<SendOutlined />}></Button>
           <PDFDownloadLink
-            document={<FullReport messages={appState.chatMessages} />}
+            document={<FullReport messages={appState.state.chatMessages} />}
             fileName={`app_report.pdf`}
           >
             {({ blob, url, loading, error }) =>

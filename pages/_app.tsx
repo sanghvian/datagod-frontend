@@ -15,18 +15,49 @@ import 'antd/dist/antd.css';
 import { Toaster } from 'react-hot-toast';
 // Create a client
 const queryClient = new QueryClient()
+import '@aws-amplify/ui-react/styles.css';
+import awsconfig from '../src/aws-exports';
+
+import { Amplify } from 'aws-amplify';
+
+import { Authenticator } from '@aws-amplify/ui-react';
+import { useEffect } from 'react';
+
+const configureAmplify = () => {
+  // const urlsIn = awsconfig.oauth.redirectSignIn.split(',')
+  // const urlsOut = awsconfig.oauth.redirectSignOut.split(',')
+  // const currentHost = location.protocol + '//' + location.host
+  // const isCurrentHost = (url: string) => url.includes(currentHost)
+  // const newUrls = {
+  //   redirectSignIn: urlsIn.find(url => isCurrentHost(url)),
+  //   redirectSignOut: urlsOut.find(url => isCurrentHost(url))
+  // }
+  // const updateConfig = {
+  //   ...awsconfig,
+  //   oauth: {
+  //     ...awsconfig.oauth,
+  //     ...newUrls
+  //   }
+  // }
+  Amplify.configure(awsconfig)
+}
 
 
 function MyApp({ Component, pageProps }: AppProps) {
+  useEffect(() => {
+    configureAmplify()
+  }, [])
   return (
     <Provider store={store}>
       <PersistGate loading={null} persistor={persistor}>
-        <QueryClientProvider client={queryClient}>
-          <Meta />
-          <Toaster />
-          <Component {...pageProps} />
-          {/* <ReactQueryDevtools initialIsOpen={false} /> */}
-        </QueryClientProvider>
+        <Authenticator.Provider>
+          <QueryClientProvider client={queryClient}>
+            <Meta />
+            <Toaster />
+            <Component {...pageProps} />
+            {/* <ReactQueryDevtools initialIsOpen={false} /> */}
+          </QueryClientProvider>
+        </Authenticator.Provider>
       </PersistGate>
     </Provider >
   );
