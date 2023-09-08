@@ -55,8 +55,8 @@ const ChatApp: React.FC = () => {
   return (
     <div style={{ padding: "2rem", borderRadius: "0.7rem" }} >
       <div className={styles.listContainer}>
-        <Typography.Title level={3}>Using Amazon Kendra</Typography.Title>
-        <p>Upload 1 or more than 1 file, ask some questions</p>
+        <Typography.Title level={3}>Hey ___, how can I help you today? 👋</Typography.Title>
+        <p>Ask some questions on company data (Upload a file if you wanna)</p>
         <UploadToS3Button />
         <List
           dataSource={messages}
